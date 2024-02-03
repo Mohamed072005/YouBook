@@ -14,7 +14,17 @@
                     <h5 class="card-title">{{$bookInfo->title}}</h5>
                     <h6 class="card-text">{{$bookInfo->author}}</h6>
                     <p class="card-text">{{$bookInfo->description}}.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <h6 class="card-text">{{$bookInfo->prix}}$</h6>
+                    <form action="{{Route('delete.book', $bookInfo->id)}}" method="get">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-outline-danger">Delete</button>
+                    </form>
+                    <form class="mt-2" action="{{Route('edit.book', $bookInfo->id)}}" method="get">
+                        @csrf
+                        @method('Edit')
+                        <button class="btn btn-outline-warning">Update</button>
+                    </form>
                 </div>
             </div>
         </div>

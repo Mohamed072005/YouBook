@@ -41,20 +41,40 @@ class BookController extends Controller
     }
 
 
-    public function edit()
+    public function edit($id)
     {
-        //
+        $book = Book::find($id);
+        return view('updateBook', compact('book'));
     }
 
     
-    public function update()
+    public function update(Request $request, $id)
     {
-        //
+        
+        $request->validate([
+            'title'=>'required',
+            'author'=>'required',
+            'description'=>'required',
+            'price'=>'required'
+        ]);
+
+
+        $book = Book::find($id);
+        $book->update([
+            'title'=>$request->input('title'),
+            'author'=>$request->input('author'),
+            'description'=>$request->input('description'),
+            'prix'=>$request->input('price'),
+        ]);
+
+        return redirect()->route('show');
     }
 
     
-    public function destroy()
+    public function destroy($id)
     {
-        //
+        $book = Book::find($id);
+        $book->delete();
+        return redirect()->route('show');
     }
 }

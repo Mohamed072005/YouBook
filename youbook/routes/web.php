@@ -21,3 +21,9 @@ Route::get('/to.book', function(){
 Route::get('/', [BookController::class , 'ShowBook'])->name('show');
 
 Route::post('/book', [BookController::class, 'store'])->name('store.book');
+
+Route::delete('/delete/{id}', [BookController::class, 'destroy'])->name('delete.book');
+
+Route::get('/edit/{id}', [BookController::class, 'edit'])->name('edit.book');
+
+Route::put('/update/{id}', [BookController::class, 'update'])->name('update.book');
