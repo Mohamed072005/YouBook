@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\ReservationController;
+use App\Models\Reservation;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +29,7 @@ Route::delete('/delete/{id}', [BookController::class, 'destroy'])->name('delete.
 Route::get('/edit/{id}', [BookController::class, 'edit'])->name('edit.book');
 
 Route::put('/update/{id}', [BookController::class, 'update'])->name('update.book');
+
+Route::get('/details/{id}', [BookController::class, 'bookDetails'])->name('show.book.details');
+
+Route::post('/reservation', [ReservationController::class, 'store'])->name('reservation');

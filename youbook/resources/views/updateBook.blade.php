@@ -9,7 +9,7 @@
                 @csrf
                 @method('PUT')
                 <div class="col-md-8">
-                    <input type="hidden" class="form-control" value="{{$book->description}}" name="title" id="">
+                    <input type="hidden" class="form-control" value="{{$book->description}}" name="title" id="hidden_description">
                 </div>
                 <div class="col-md-8">
                     <label for="" class="form-label">Title</label>
@@ -21,7 +21,7 @@
                 </div>
                 <div class="col-md-8">
                     <label for="" class="d-block form-label">Description</label>
-                    <textarea type="text" class="form-control" name="description" id=""></textarea>
+                    <textarea type="text" class="form-control" name="description" id="description"></textarea>
                 </div>
                 <div class="col-md-8 input-group mb-3">
                     <div class="input-group-prepend">
@@ -37,5 +37,8 @@
         
     </main>
     <script>
+        let hidden_description = document.getElementById('hidden_description').value;
+        let description = document.getElementById('description');
+        description.innerText = hidden_description;
     </script>
 @endsection

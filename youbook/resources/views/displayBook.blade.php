@@ -2,9 +2,6 @@
 @section('title', 'display book')
 @section('content')
 <main class="d-flex flex-column align-items-center">
-        <div class = "row mt-3 w-75">
-            <a href="http://localhost/YouBook/youbook/public/to.book">to</a>
-        </div>
     <div class="row mt-5 w-75">
         @foreach($book as $bookInfo)
         <div class="col-4 mt-3">
@@ -24,6 +21,9 @@
                         @csrf
                         @method('Edit')
                         <button class="btn btn-outline-warning">Update</button>
+                    </form>
+                    <form class="mt-2" action="{{Route('show.book.details', $bookInfo->id)}}" method="get">
+                        <button class="btn btn-outline-primary">View</button>
                     </form>
                 </div>
             </div>

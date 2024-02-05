@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Book extends Model
+class Reservation extends Model
 {
     use HasFactory;
-    protected $table = 'books';
-    protected $fillable = ['title', 'author', 'description', 'prix'];
+    protected $table = 'reservations';
+    protected $fillable = ['user_id', 'book_id', 'date_start', 'date_fin'];
 }
