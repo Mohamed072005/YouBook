@@ -77,4 +77,9 @@ class BookController extends Controller
         $book->delete();
         return redirect()->route('show');
     }
+
+    public function bookDetails($id){
+        $book = Book::find($id);
+        return view('showBook', compact('book'));
+    }
 }

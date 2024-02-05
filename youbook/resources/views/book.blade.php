@@ -1,5 +1,5 @@
 @extends('layout')
-
+@section('title', 'create book')
 @section('content')
 
 <main class="d-flex flex-column align-items-center">
